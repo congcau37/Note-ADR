@@ -1,0 +1,71 @@
+﻿ /**
+ * Hàm đọc tập tin trong Android
+ * Dùng openFileInput trong Android để đọc
+ * ra FileInputStream
+ */
+public void readData()
+ {
+ try {
+ FileInputStream in= openFileInput("myfile.txt");
+ BufferedReader reader=new
+ BufferedReader(new InputStreamReader(in));
+ String data="";
+ StringBuilder builder=new StringBuilder();
+ while((data=reader.readLine())!=null)
+ {
+ builder.append(data);
+ builder.append("\n");
+ }
+ in.close();
+ editdata.setText(builder.toString());
+ } catch (FileNotFoundException e) {
+ e.printStackTrace();
+ } catch (IOException e) {
+ e.printStackTrace();
+ }
+ }
+ /**
+ * Hàm ghi tập tin trong Android
+ * dùng openFileOutput để ghi
+ * openFileOutput tạo ra FileOutputStream
+ */
+ public void writeData()
+ {
+ try {
+ FileOutputStream out=
+ openFileOutput("myfile.txt",0);
+ OutputStreamWriter writer=
+ new OutputStreamWriter(out);
+ writer.write(editdata.getText().toString());
+ writer.close();
+ } catch (FileNotFoundException e) {
+ e.printStackTrace();
+ } catch (IOException e) {
+ e.printStackTrace();
+ }
+ }
+///// Đọc resource file
+public void readData()
+ {
+ String data;
+ InputStream in= getResources().openRawResource(R.drawable.myfile);
+ InputStreamReader inreader=new InputStreamReader(in);
+ BufferedReader bufreader=new BufferedReader(inreader);
+ StringBuilder builder=new StringBuilder();
+ if(in!=null)
+ {
+ try
+{
+ while((data=bufreader.readLine())!=null)
+ {
+ builder.append(data);
+ builder.append("\n");
+ }
+ in.close();
+ editdata.setText(builder.toString());
+}
+ catch(IOException ex){
+ Log.e("ERROR", ex.getMessage());
+ }
+}
+}

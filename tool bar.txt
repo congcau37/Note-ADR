@@ -1,0 +1,56 @@
+ private void initToolbar() {
+        toolbar = view.findViewById(R.id.toolbar);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_search_apply:
+//                        String name = edtSearchName.getText().toString().trim();
+//                        openAddingForm(new ProductResultSearch(), ConstantKey.KEY_PASS_PRODUCT_RESULT, filter(name, status, price));
+                        searchServer();
+                        break;
+                    default:
+                        return false;
+                }
+                return true;
+            }
+        });
+        toolbar.inflateMenu(R.menu.menu_search_choice);
+        toolbar.setNavigationIcon(R.drawable.ic_back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getDialog().dismiss();
+            }
+        });
+        toolbar.setTitle(getResources().getString(R.string.toolbar_title_search));
+    }
+
+//xml
+ <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/cam"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+//
+private void initToolbar() {
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        toolbar.setTitle("Danh sach xe");
+    }

@@ -1,0 +1,48 @@
+public class Converter {
+
+    public static String convertToDateMonthYear(String origin) {
+        if(origin == null){
+            return "--:--:--";
+        }
+        Timestamp time = Timestamp.valueOf(origin);
+        SimpleDateFormat sdfDate = new SimpleDateFormat("dd/MM/yyyy");
+        return sdfDate.format(time);
+    }
+
+    public static String convertToTimeFull(String origin) {
+        if(origin == null){
+            return "--:--:--";
+        }
+        Timestamp time = Timestamp.valueOf(origin);
+        SimpleDateFormat sdfDate = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        return sdfDate.format(time);
+    }
+
+    public static String convertToCurrency(long number){
+        NumberFormat formatter = new DecimalFormat("###,###,###.##d");
+        return formatter.format(number);
+    }
+
+    public static String convertGender(int num){
+        String gender ="";
+        if(num==0){
+            gender = "Nam";
+        }
+        else {
+            gender = "N?";
+        }
+        return gender;
+    }
+
+    public static String convertTypeCustomer(int num){
+        String type ="";
+        if(num==1){
+            type = "Buôn";
+        }
+        else {
+            type = "L?";
+        }
+        return type;
+    }
+
+}

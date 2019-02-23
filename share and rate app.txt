@@ -1,0 +1,44 @@
+﻿ private void shareApp() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        String shareSubText = "Happy New Year GIF 2019 - Happy Birthday GIF - APP";
+        String shareBodyText = "https://play.google.com/store/apps/details?id=" + getPackageName();
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSubText);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, shareBodyText);
+        startActivity(Intent.createChooser(shareIntent, "Share With"));
+    }
+
+    public void checkForUpdate(Context context) {
+        try {
+            context.startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(context.getString(R.string.url_market_details)
+                            + getPackageName())));
+        } catch (android.content.ActivityNotFoundException anfe) {
+            try {
+                context.startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(context.getString(R.string.url_playstore_app)
+                                + getPackageName())));
+            } catch (Exception e) {
+                Toast.makeText(context,
+                        R.string.install_google_play_store,
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public void rateApp(Context context) {
+        try {
+            Uri uri = Uri.parse(context.getString(R.string.url_market_details)
+                    + getPackageName());
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            int flags = Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_MULTIPLE_TASK;
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT_WATCH)
+                flags |= Intent.FLAG_ACTIVITY_NEW_DOCUMENT;
+            else
+                flags |= Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET;
+            intent.addFlags(flags);
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            checkForUpdate(context);
+        }
+    }

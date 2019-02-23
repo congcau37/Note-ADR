@@ -1,0 +1,52 @@
+private void getBasicDataFromServer() {
+        SOService mService;
+        mService = ApiUtils.getSOService();
+        Map<String, Object> params = new HashMap<>();
+        params.put("base", UserUtil.getInstance().getUser().getShopPrefix());
+        params.put("user", UserUtil.getInstance().getUser().getId());
+        mService.getStorageShort(params).enqueue(new Callback<ArrayList<ResponseChoice>>() {
+            @Override
+            public void onResponse(Call<ArrayList<ResponseChoice>> call, Response<ArrayList<ResponseChoice>> response) {
+                JSONArray answer = new JSONArray();
+                if (response.isSuccessful()) {
+                    for (int i = 0; i < response.body().size(); i++) {
+                        answer.put(response.body().get(i).toString());
+                    }
+                    SharedPreferences.Editor editor = ConfigUtil.getInstance().getPreference().edit();
+                    editor.putString(ConstantKey.KEY_CONFIG_STORAGE, answer.toString());
+                    editor.commit();
+                } else {
+                    int statusCode = response.code();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<ResponseChoice>> call, Throwable t) {
+
+            }
+        });
+
+        mService.getUserGroup(params).enqueue(new Callback<ArrayList<ResponseGroup>>() {
+            @Override
+            public void onResponse(Call<ArrayList<ResponseGroup>> call, Response<ArrayList<ResponseGroup>> response) {
+                JSONArray answer = new JSONArray();
+                if (response.isSuccessful()) {
+                    for (int i = 0; i < response.body().size(); i++) {
+                        answer.put(response.body().get(i).toString());
+                    }
+
+                    SharedPreferences.Editor editor = ConfigUtil.getInstance().getPreference().edit();
+                    editor.putString(ConstantKey.KEY_CONFIG_USER_GROUP, answer.toString());
+                    editor.commit();
+                } else {
+                    int statusCode = response.code();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<ResponseGroup>> call, Throwable t) {
+
+            }
+        });
+
+    }

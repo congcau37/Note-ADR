@@ -1,0 +1,100 @@
+﻿ public void domParser() {
+        try {
+            //T?o đ?i tư?ng DocumentBuilder (builder ) b?ng l?nh dư?i đây:
+            DocumentBuilderFactory DBF = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = DBF.newDocumentBuilder();
+            //T?o FileInputStream t? t?p tin XML ngu?n (? đây Tôi đ? XML ngu?n trong SD Card):
+            XMLDOMParser parser = new XMLDOMParser();
+            AssetManager manager = getActivity().getAssets();
+            InputStream stream;
+            stream = manager.open("messages_birthday.xml");
+            Document doc = parser.getDocument(stream);
+//            FileInputStream fIS = new FileInputStream(String.valueOf(stream));
+//            //Dùng phương th?c parse c?a đ?i tư?ng builder đ? t?o Document
+//            Document doc = builder.parse(fIS);
+            //Ta d?a vào đ?i tư?c doc đư?c t?o ra ? bư?c 4 đ? duy?t t?ng node trong XML:
+            Element root = doc.getDocumentElement();//l?y tag Root ra
+            NodeList list = root.getChildNodes();// l?y toàn b? node con c?a Root
+            String datashow = "";//bi?n đ? lưu thông tin
+            for (int i = 0; i < list.getLength(); i++) {// duy?t t? node đ?u tiên cho t?i node cu?i cùng
+                Node node = list.item(i);// m?i l?n duy?t th? l?y ra 1 node
+                // ki?m tra xem node đó có ph?i là Element hay không, v? ta d?a vào element đ? l?y d? li?u bên trong
+                if (node instanceof Element) {
+                    Element employee = (Element) node;// l?y đư?c tag Employee ra
+//                    String id = employee.getAttribute("id");//id là thu?c tính c?a tag Employee
+//                    String title = employee.getAttribute("title");//title là thu?c tính c?a tag employee
+                    // l?y tag name bên trong c?a tag Employee
+                    NodeList listChild = employee.getElementsByTagName(NODE_QUOTES);
+                    String name = listChild.item(0).getTextContent();//l?y n?i dung c?a tag name
+                    listChild = employee.getElementsByTagName(NODE_SAYER);// l?y tag phone bên trong c?a tag Employee
+                    String phone = listChild.item(0).getTextContent();// l?y n?i dung c?a tag phone
+                    //lưu vào bi?n lưu thông tin
+                    datashow += name + "\n" + phone
+                            + "\n---------\n";
+                }
+            }
+            Log.d("string_xml", "" + datashow);
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saxparser() {
+        try {
+            //T?o đ?i tư?ng parser t? class XmlPullParser
+            XmlPullParserFactory fc = XmlPullParserFactory
+                    .newInstance();
+            XmlPullParser parser = fc.newPullParser();
+            //T?o FileInputStream t? xml source (XML đ? trong SD Card)
+            String sdcard = Environment.
+                    getExternalStorageDirectory().
+                    getAbsolutePath();
+            String xmlfile = sdcard + "/employee.xml";
+            FileInputStream fIn = new
+                    FileInputStream(xmlfile);
+            //Ti?n hành duy?t
+            parser.setInput(fIn, "UTF-8");
+
+            int eventType = -1;
+            String nodeName;
+            String datashow = "";
+
+            while (eventType != XmlPullParser.END_DOCUMENT) {//chưa k?t thúc tài li?u
+                eventType = parser.next();// b?t đ?u duy?t đ?
+                switch (eventType) {
+                    case XmlPullParser.START_DOCUMENT:
+                        break;
+                    case XmlPullParser.END_DOCUMENT:
+                        break;
+                    case XmlPullParser.START_TAG://là tag m?
+                        nodeName = parser.getName();
+                        if (nodeName.equals("employee")) {// ki?m tra đúng tag m?nh mu?n hay không
+                            datashow += parser.getAttributeValue(0) + "-";//l?y giá tr? c?a thu?c tính
+                            datashow += parser.getAttributeValue(1) + "-";
+                        } else if (nodeName.equals("name")) {
+                            datashow += parser.nextText() + "-";//l?y n?i dung tag element
+                        } else if (nodeName.equals("phone")) {
+                            datashow += parser.nextText() + "-";
+                        }
+                        break;
+                    case XmlPullParser.END_TAG://là tag đóng
+                        nodeName = parser.getName();
+                        if (nodeName.equals("employee")) {
+                            datashow += "\n----------------\n";
+                        }
+                        break;
+                }
+            }
+            Log.d("string_xml", "" + datashow);
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }

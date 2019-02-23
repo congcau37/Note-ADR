@@ -1,0 +1,65 @@
+ private void setDate(){
+        calendar = Calendar.getInstance();
+        SimpleDateFormat simple = new SimpleDateFormat("dd/MM/yyyy");
+        dateOverview.setText(simple.format(calendar.getTime()));
+    }
+    private void setWeek(){
+        calendar = Calendar.getInstance();
+        date = calendar.get(calendar.DATE);
+        month = calendar.get(calendar.MONTH);
+        year = calendar.get(calendar.YEAR);
+        int dayOfWeek = calendar.get(calendar.DAY_OF_WEEK);
+        int firtDayOfWeek = dayOfWeek + 7 - 9;
+        SimpleDateFormat simple = new SimpleDateFormat("dd/MM/yyyy");
+        calendar.add(Calendar.DATE,- firtDayOfWeek);
+        String dateFirstWeek = simple.format(calendar.getTime());
+        calendar.add(Calendar.DATE,-firtDayOfWeek+7);
+        String dateEndWeek = simple.format(calendar.getTime());
+        dateOverview.setText("T?"+ " " + dateFirstWeek+ " " + "d?n" + " " + dateEndWeek);
+    }
+    private void setMonth(){
+        calendar = Calendar.getInstance();
+        date = calendar.get(calendar.DATE);
+        month = calendar.get(calendar.MONTH)+1;
+        year = calendar.get(calendar.YEAR);
+        String firstDayMonth = minDay(month,year)+"/"+month+"/"+year;
+        String endDayMonth = maxDay(month,year)+"/"+month+"/"+year;
+        dateOverview.setText("T?"+ " " + firstDayMonth+ " " + "d?n" + " " + endDayMonth);
+
+    }
+    private void setSevenDay(){
+        calendar = Calendar.getInstance();
+        SimpleDateFormat simple = new SimpleDateFormat("dd/MM/yyyy");
+        String date = simple.format(calendar.getTime());
+        calendar.add(Calendar.DATE,-7);
+        dateOverview.setText("T?"+ " " + simple.format(calendar.getTime())+ " " + "d?n" + " " + date);
+    }
+    private void setThirtyDay(){
+        calendar = Calendar.getInstance();
+        SimpleDateFormat simple = new SimpleDateFormat("dd/MM/yyyy");
+        String date = simple.format(calendar.getTime());
+        calendar.add(Calendar.DATE,-30);
+        dateOverview.setText("T?" + " " + simple.format(calendar.getTime())+ " " + "d?n" + " " + date);
+    }
+    private void openSelectDateOverview() {
+        FragmentManager ft = getChildFragmentManager();
+        DialogFragment dialogFragment = new SelectTimeFragment();
+        dialogFragment.show(ft, "dialog");
+    }
+    public static int minDay(int month, int year) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MONTH, month - 1);
+        cal.set(Calendar.DAY_OF_MONTH, month - 1);
+        cal.set(Calendar.YEAR, year);
+        int minDay = cal.getActualMinimum(Calendar.DAY_OF_MONTH);
+        return minDay;
+    }
+
+    public static int maxDay(int month, int year) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MONTH, month - 1);
+        cal.set(Calendar.DAY_OF_MONTH, month - 1);
+        cal.set(Calendar.YEAR, year);
+        int maxDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+        return maxDay;
+    }

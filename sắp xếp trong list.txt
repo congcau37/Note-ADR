@@ -1,0 +1,25 @@
+ //S?p x?p theo s? lu?ng
+
+    public void sortPrdQuantity() {
+        productArrayList = new ArrayList<>();
+        Collections.sort(locList, new ProductComparatorQuantity());
+        for (Product emp : locList) {
+            Log.d("sort", "" + emp.getPrdQuatity());
+            productArrayList.add(emp);
+
+        }
+        productAdapter = new ProductAdapter(MainActivity.this, R.layout.custom_listview_products,productArrayList);
+        lvPrd.setAdapter(productAdapter);
+    }
+
+//t?o 1 class
+
+public class ProductComparatorName implements Comparator<Product>{
+    @Override
+    public int compare( Product a,  Product b)
+    {
+        String p1 = a.getPrdName();
+        String p2 = b.getPrdName();
+        return (p1.toString().compareTo(p2.toString()));
+    }
+}

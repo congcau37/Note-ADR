@@ -1,0 +1,45 @@
+//kh?i t?o fragment
+public void initFragment(int id, android.support.v4.app.Fragment fragment, String TAG) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(id, fragment, TAG).commit();
+
+    }
+
+//nh?n DL from Fragment
+    public void receiveDataFromFragment(Product prd) {
+        Intent intent = getIntent();
+        intent.putExtra("resultname", prd.getPrdName());
+        intent.putExtra("resultid", id);
+        Log.d("a", "" + prd.getPrdName());
+        setResult(1, intent);
+        finish();
+    }
+//activity(1) foresult
+ Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                Bundle bd = new Bundle();
+                Product prd = new Product(locList.get(position).getPrdName(), locList.get(position).getPrdCode(), locList.get(position).getPrdPrice(), locList.get(position).getPrdQuatity(), R.drawable.download);
+                bd.putSerializable("prd", prd);
+                bd.putInt("id", position);
+                intent.putExtras(bd);
+                startActivityForResult(intent, 0);
+//result
+ @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 0 && resultCode == 1) {
+            int rsID = data.getIntExtra("resultid", 0);
+            String nd = data.getStringExtra("resultname");
+            locList.get(rsID).setPrdName(nd);
+            productAdapter.notifyDataSetChanged();
+
+        }
+    }
+
+  //activity nh?n DL from Activity(1)
+    public void receiveDataFromActivity() {
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        product = (Product) bundle.getSerializable("prd");
+        id = bundle.getInt("id");
+        initFragment(R.id.my_layout, DetailProductFragment.newFragment(), "frg");
+    }

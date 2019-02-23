@@ -1,0 +1,91 @@
+﻿public class Json extends AsyncTask<Void, Void, String> {
+
+    public static String js;
+    private ArrayList<UserGroup> userGroupArrayList;
+    private UserGroupAdapter userGroupAdapter;
+    private Activity activity;
+
+    public Json(Activity activity){
+        this.activity = activity;
+    }
+    public ArrayList<UserGroup> returnArray(){
+        return userGroupArrayList;
+    }
+// dung asyntask
+    @Override
+    protected String doInBackground(Void... voids) {
+
+        InputStream is = null;
+        String result = "";
+        JSONObject jsonObject = null;
+
+        // HTTP
+        try {
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpGet httppost = new HttpGet("http://192.168.1.8/sale/apiserver/book/user_group?format=json");
+            HttpResponse response = httpclient.execute(httppost);
+            HttpEntity entity = response.getEntity();
+            is = entity.getContent();
+
+        } catch (Exception e) {
+            Log.d("exception", "http = " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+
+        // Read response to string
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "utf-8"), 8);
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+            is.close();
+            result = sb.toString();
+        } catch (Exception e) {
+            Log.d("exception", "read file = " + e.getMessage());
+            return null;
+        }
+        return result;
+
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        super.onPostExecute(s);
+        ((UserGroupActivity)activity).setAdapter(displayJsonFromURL(s));
+    }
+
+    public ArrayList<UserGroup> displayJsonFromURL(String str) {
+
+        userGroupArrayList = new ArrayList<>();
+
+//nếu trước jsonarray có 1 jsonobj với(key:contacts)
+// 	JSONObject jsonObj = new JSONObject(StringJson);
+//      JSONArray jsonarray = jsonObj.getJSONArray("contacts");
+
+        try {
+            JSONArray jsonarray = new JSONArray(str);
+            for (int i = 0; i < jsonarray.length(); i++) {
+                JSONObject jsonobject = jsonarray.getJSONObject(i);
+                UserGroup userGroup = new UserGroup();
+                userGroup.setUserGroupId(Integer.parseInt(jsonobject.getString("id")));
+                userGroup.setUserGroupName(jsonobject.getString("name"));
+                JSONArray jsonArray = jsonobject.getJSONArray("permission");
+                String[] permission = new String[jsonArray.length()];
+
+                for (int j = 0; j < jsonArray.length(); j++) {
+
+                    permission[j] = jsonArray.getString(j);
+                }
+                userGroup.setUserGroupPermission(permission);
+                userGroup.setUserIMG(R.drawable.download);
+                userGroupArrayList.add(userGroup);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return userGroupArrayList;
+    }
+}

@@ -1,0 +1,23 @@
+ public void onRationaleRequested(final Permiso.IOnRationaleProvided paramIOnRationaleProvided, String[] paramArrayOfString)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Xin quy?n");
+        builder.setMessage("B?n có mu?n b?t không?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                paramIOnRationaleProvided.onRationaleProvided();
+            }
+        });
+        builder.setNegativeButton("không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }

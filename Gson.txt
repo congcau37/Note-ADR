@@ -1,0 +1,17 @@
+﻿//from Url
+ URL url=new URL(link);
+//              //đọc stream Json từ internet có đọc UTF8
+                InputStreamReader reader=new InputStreamReader(url.openStream(),"UTF-8");
+                //chuyển định dạng JSon về java class
+                FaceBook fb=new Gson().fromJson(reader,FaceBook.class);
+//from Asset
+try {
+    InputStream is = getAssets().open("phones.json");
+    BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+  
+    synchronized (this) {
+        mainContentModel = gson.fromJson(reader, MainContentModel.class);
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}

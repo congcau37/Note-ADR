@@ -1,0 +1,106 @@
+package com.example.itdev.izinzin.service.response;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+public class ResponseNote {
+    @SerializedName("id")
+    @Expose
+    private String id;
+    @SerializedName("code")
+    @Expose
+    private String code;
+    @SerializedName("status")
+    @Expose
+    private String status;
+    @SerializedName("value")
+    @Expose
+    private String value;
+    @SerializedName("date_created")
+    @Expose
+    private String dateCreated;
+    @SerializedName("partner_name")
+    @Expose
+    private String partnerName;
+    @SerializedName("partner_phone")
+    @Expose
+    private String partnerPhone;
+    @SerializedName("partner_address")
+    @Expose
+    private String partnerAddress;
+    @SerializedName("kind")
+    @Expose
+    private String kind;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(String dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public String getPartnerName() {
+        return partnerName;
+    }
+
+    public void setPartnerName(String partnerName) {
+        this.partnerName = partnerName;
+    }
+
+    public String getPartnerPhone() {
+        return partnerPhone;
+    }
+
+    public void setPartnerPhone(String partnerPhone) {
+        this.partnerPhone = partnerPhone;
+    }
+
+    public String getPartnerAddress() {
+        return partnerAddress;
+    }
+
+    public void setPartnerAddress(String partnerAddress) {
+        this.partnerAddress = partnerAddress;
+    }
+
+    public String getKind() {
+        return kind;
+    }
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+}

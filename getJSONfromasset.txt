@@ -1,0 +1,34 @@
+try {
+jsonObject:
+//            JSONObject obj = new JSONObject(json);
+//            JSONArray m_jArry = obj.getJSONArray("product");
+//
+//            for (int i = 0; i < m_jArry.length(); i++) {
+//                JSONObject jo_inside = m_jArry.getJSONObject(i);
+//                Product product = new Product();
+//                product.setPrdName(jo_inside.getString("prd_name"));
+//                product.setPrdCode(jo_inside.getString("prd_code"));
+//                product.setPrdPrice(Integer.parseInt(jo_inside.getString("prd_sell_price")));
+//                product.setPrdQuatity(Integer.parseInt(jo_inside.getString("prd_sls")));
+//                product.setPdr_Picture(R.drawable.download);
+//
+//                locList.add(product);
+//            }
+jsonArray:
+            JSONArray jsonarray = new JSONArray(json);
+            for (int i = 0; i < jsonarray.length(); i++) {
+                JSONObject jsonobject = jsonarray.getJSONObject(i);
+                Product product = new Product();
+                product.setPrdName(jsonobject.getString("prd_name"));
+                product.setPrdCode(jsonobject.getString("prd_code"));
+                product.setPrdPrice(Integer.parseInt(jsonobject.getString("prd_sell_price")));
+                product.setPrdQuatity(Integer.parseInt(jsonobject.getString("prd_sls")));
+                product.setPdr_Picture(R.drawable.download);
+                locList.add(product);
+            }
+            Log.d("test",""+locList.size());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return locList;
+    }

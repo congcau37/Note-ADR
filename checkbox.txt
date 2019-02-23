@@ -1,0 +1,19 @@
+ //set one check box in adapter; i=possiton
+ viewHolder.checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(viewHolder.checkBox.isChecked()){
+                    for (int j=0;j<data.size();j++){
+                        if (j==i){
+                            data.get(i).setCheck(true);
+                        }
+                        else {
+                        data.get(j).setCheck(false);}
+                    }
+                    notifyDataSetChanged();
+
+                }else {
+                    data.get(i).setCheck(false);
+                }
+            }
+        });

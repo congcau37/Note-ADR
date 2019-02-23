@@ -1,0 +1,52 @@
+ //Tìm ki?m
+//activity
+    public void searchPrd() {
+
+        edtSearchPrd.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1,
+                                          int arg2, int arg3) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+                                      int arg3) {
+                String text = edtSearchPrd.getText().toString().toLowerCase(Locale.getDefault());
+                productAdapter.filter(text);
+                lvPrd.setAdapter(productAdapter);
+
+            }
+        });
+    }
+
+// trong adapter
+public void filter(String charText) {
+
+        charText = charText.toLowerCase(Locale.getDefault());
+        productArrayList.clear();
+        if (charText.length() == 0) {
+            productArrayList.addAll(listPrd);
+
+        }
+        else
+        {
+            for (Product wp : listPrd)
+            {
+                if (wp.getPrdName().toLowerCase(Locale.getDefault()).contains(charText))
+                {
+                    productArrayList.add(wp);
+                    Log.d("aaa",""+wp.getPrdName());
+                }
+            }
+        }
+
+        ProductAdapter productAdapter = new ProductAdapter(context, R.layout.custom_listview_products,productArrayList);
+        productAdapter.notifyDataSetChanged();
+    }

@@ -1,0 +1,18 @@
+dialogFM->dialogFM
+private void openAddingForm(DialogFragment dialogFragment, String key, ArrayList<ProductGetData> data) {
+        FragmentManager ft = getChildFragmentManager();
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList(key, data);
+        dialogFragment.setArguments(bundle);
+        dialogFragment.show(ft, "dialog90");
+    }
+	
+//dialog nhan
+
+@Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.AppTheme_NoActionBar);
+        Bundle bundle = getArguments();
+	prdUnitList = bundle.getParcelableArrayList(ConstantKey.KEY_PASS_UNIT);
+    }

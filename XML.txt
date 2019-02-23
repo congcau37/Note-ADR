@@ -1,0 +1,38 @@
+//parse file xml -> string 
+private String getXml(String fileName) {
+        String xmlString = null;
+        AssetManager am = getActivity().getAssets();
+        try {
+            InputStream is = am.open(fileName);
+            int length = is.available();
+            byte[] data = new byte[length];
+            is.read(data);
+            xmlString = new String(data);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        return xmlString;
+    }
+
+//
+write file xml assets -> sd card
+
+public void writeData()
+    {
+        String sdcard=Environment
+                .getExternalStorageDirectory()
+                .getAbsolutePath()+"/employee.xml";
+        try {
+            OutputStreamWriter writer=
+                    new OutputStreamWriter(
+                            new FileOutputStream(sdcard));
+            writer.write(getXml("employee.xml"));
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+//

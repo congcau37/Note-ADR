@@ -1,0 +1,56 @@
+private void saveAddCustomer() {
+        String nameAdd = nameAddCustomer.getText().toString();
+        if (nameAdd.equals("") == true) {
+            Toast.makeText(getActivity(), "Tên khách hàng không du?c d? tr?ng", Toast.LENGTH_SHORT).show();
+        } else {
+            String phoneAdd = phoneAddCustomer.getText().toString();
+            String codeAdd = codeAddCustomer.getText().toString();
+            String emailAdd = emailAddCustomer.getText().toString();
+            String addressAdd = addressAddCustomer.getText().toString();
+            String noteAdd = noteAddCustomer.getText().toString();
+            String birthdayAdd = convertBirthday(birthdayAddCustomer.getText().toString());
+            String pointAdd = pointAddCustomer.getText().toString();
+            Map<String, Object> params = new HashMap<>();
+            params.put("base", UserUtil.getInstance().getUser().getShopPrefix());
+            params.put("user", UserUtil.getInstance().getUser().getId());
+            params.put("action", 1);
+            params.put("id", 0);
+            params.put("code", codeAdd);
+            params.put("name", nameAdd);
+            params.put("phone", phoneAdd);
+            params.put("mail", emailAdd);
+            params.put("address", addressAdd);
+            params.put("birthday", birthdayAdd);
+            params.put("gender", checkGenderCustomer);
+            params.put("type", checkPriceCustomer);
+            params.put("point", pointAdd);
+            params.put("note", noteAdd);
+            mService.createCustomer(params).enqueue(new Callback<ResponseMessage>() {
+                @Override
+                public void onResponse(Call<ResponseMessage> call, Response<ResponseMessage> response) {
+                    if (response.isSuccessful()) {
+                        if (response.body().getCode() == 0) {
+                            Toast.makeText(getActivity(), "Thêm m?i thành công khách hàng.", Toast.LENGTH_SHORT).show();
+                            ((CustomerFragment)getParentFragment()).refreshDataCustomer();
+                            getDialog().dismiss();
+                        } else {
+                            Toast.makeText(getActivity(), "L?i: " + response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        int statusCode = response.code();
+                        if (statusCode == 404) {
+                            Toast.makeText(getActivity(), "L?i : Không th? k?t n?i t?i máy ch? ", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getActivity(), "L?i", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseMessage> call, Throwable t) {
+                    Toast.makeText(getActivity(), "Server l?i", Toast.LENGTH_SHORT).show();
+                    getDialog().dismiss();
+                }
+            });
+        }
+    }

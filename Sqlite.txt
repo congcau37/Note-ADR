@@ -1,0 +1,42 @@
+﻿https://viblo.asia/p/su-dung-sqlite-database-trong-ung-dung-android-wjAM7alevmWe
+// ------------------------khởi tạo-------------------
+
+private void createDB() {
+        DBHeplper sql = new DBHeplper(this);
+        try {
+            sql.createDataBase();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+// ----------------------  controller---------------
+
+public class SqliteController {
+    private DBHeplper dbHelper;
+
+    public SqliteController(Context context) {
+        dbHelper = new DBHeplper(context);
+    }
+
+    public ArrayList<MonAnModel> getTatCaMonAn() {
+
+        ArrayList<MonAnModel> questionModelArrayList = new ArrayList<MonAnModel>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM DongVat",null);
+        cursor.moveToFirst();
+        do {
+            MonAnModel item;
+            item = new MonAnModel(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4));
+            questionModelArrayList.add(item);
+        } while (cursor.moveToNext());
+        return questionModelArrayList;
+    }
+
+    public void updateMonAn(MonAnModel monAnModel) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("love", monAnModel.getLove());
+        db.update("DongVat", values, "id" + " = ?", new String[] { String.valueOf(monAnModel.getId()) });
+        db.close();
+    }

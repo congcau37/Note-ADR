@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+    <RelativeLayout
+        android:id="@+id/form_staff_title_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/form_staff_title_area">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#bcbed1">
+
+                <TextView
+                    android:id="@+id/txt_fist_alphabetic"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textSize="40dp"
+                    android:textColor="@color/color_background"
+                    android:background="@drawable/bg_corner_round_all" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/item_info_text_normal"
+                        android:textColor="@color/color_item_content"
+                        android:text="Mã s?n ph?m" />
+
+                    <EditText
+                        android:textSize="15sp"
+                        android:hint="T? sinh"
+                        android:id="@+id/edt_prd_code"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:ems="10">
+                        <requestFocus></requestFocus>
+
+                    </EditText>
+
+                    <LinearLayout
+                        android:gravity="right"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:scaleType="centerInside"
+                            android:layout_gravity="center"
+                            android:id="@+id/img_prd_barcode"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_barcode" />
+                    </LinearLayout>
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_info_divider"
+                    android:background="@drawable/bg_line"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/item_info_text_normal"
+                        android:textColor="@color/color_item_content"
+                        android:text="Tên s?n ph?m" />
+
+                    <EditText
+                        android:textSize="15sp"
+                        android:hint="Nh?p tên s?n ph?m"
+                        android:id="@+id/edt_prd_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:ems="12" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_info_divider"
+                    android:background="@drawable/bg_line"/>
+                <LinearLayout
+                    android:id="@+id/control_area_unit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/item_info_text_normal"
+                        android:textColor="@color/color_item_content"
+                        android:text="Ðon v? tính" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp">
+                        <TextView
+                            android:id="@+id/txt_prd_unit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/img_prd_unit"
+                            android:textSize="@dimen/item_info_text_normal"
+                            android:textColor="@color/color_item_title_sub"
+                            android:hint="Nh?p don v? tính" />
+                        <ImageView
+                            android:id="@+id/img_prd_unit"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/detail_arrow" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_info_divider"
+                    android:background="@drawable/bg_line"/>
+                <LinearLayout
+                    android:id="@+id/control_area_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:minHeight="48dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/item_info_text_normal"
+                        android:textColor="@color/color_item_content"
+                        android:text="Danh m?c" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp">
+                        <TextView
+                            android:id="@+id/txt_prd_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/img_prd_category"
+                            android:textSize="@dimen/item_info_text_normal"
+                            android:textColor="@color/color_item_title_sub"
+                            android:hint="Nh?p danh m?c" />
+                        <ImageView
+                            android:id="@+id/img_prd_category"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/detail_arrow" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_info_divider"
+                    android:background="@drawable/bg_line"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/item_info_text_normal"
+                        android:textColor="@color/color_item_content"
+                        android:text="Giá v?n" />
+
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/edt_price_cost"
+                        android:hint="0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:ems="12" />
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_info_divider"
+                    android:background="@drawable/bg_line"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/item_info_text_normal"
+                        android:textColor="@color/color_item_content"
+                        android:text="Giá buôn" />
+
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/edt_Whole_sale_price"
+                        android:hint="0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:ems="12" />
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_info_divider"
+                    android:background="@drawable/bg_line"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/item_info_text_normal"
+                        android:textColor="@color/color_item_content"
+                        android:text="Giá l?" />
+
+                    <EditText
+                        android:inputType="number"
+                        android:hint="0"
+                        android:id="@+id/edt_price_retail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:ems="12" />
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_info_divider"
+                    android:background="@drawable/bg_line"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/item_info_text_normal"
+                        android:textColor="@color/color_item_content"
+                        android:text="T?n kho" />
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_info_divider"
+                    android:background="@drawable/bg_line"/>
+                <LinearLayout
+                    android:id="@+id/control_area_manufacturer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/item_info_text_normal"
+                        android:textColor="@color/color_item_content"
+                        android:text="Xu?t x?" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp">
+                        <TextView
+                            android:id="@+id/txt_prd_origin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/img_prd_origin"
+                            android:textSize="@dimen/item_info_text_normal"
+                            android:textColor="@color/color_item_title_sub"
+                            android:hint="Ch?n xu?t x?" />
+                        <ImageView
+                            android:id="@+id/img_prd_origin"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/detail_arrow" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_info_divider"
+                    android:background="@drawable/bg_line"/>
+                <LinearLayout
+                    android:id="@+id/control_area_supplier"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/item_info_text_normal"
+                        android:textColor="@color/color_item_content"
+                        android:text="Nhà cung c?p" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp">
+                        <TextView
+                            android:id="@+id/txt_prd_supplier"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/img_prd_supplier"
+                            android:textSize="@dimen/item_info_text_normal"
+                            android:textColor="@color/color_item_title_sub"
+                            android:hint="Ch?n nhà cung c?p" />
+                        <ImageView
+                            android:id="@+id/img_prd_supplier"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/detail_arrow" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_info_divider"
+                    android:background="@drawable/bg_line"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/item_info_text_normal"
+                        android:textColor="@color/color_item_content"
+                        android:text="Mô t?" />
+                    <EditText
+                        android:id="@+id/edt_comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nh?p mô t? t?i dây..."
+                        android:textSize="@dimen/item_info_text_normal" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

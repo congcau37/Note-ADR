@@ -1,0 +1,192 @@
+package com.example.itdev.izinzin.service;
+
+import com.example.itdev.izinzin.service.response.ResponseCategory;
+import com.example.itdev.izinzin.service.response.ResponseDetailProduct;
+import com.example.itdev.izinzin.service.response.ResponseDetailProductInventory;
+import com.example.itdev.izinzin.service.response.ResponseDetailCustomer;
+import com.example.itdev.izinzin.service.response.ResponseGroup;
+import com.example.itdev.izinzin.service.response.ResponseHistorySupplier;
+import com.example.itdev.izinzin.service.response.ResponseHistoryCustomer;
+import com.example.itdev.izinzin.service.response.ResponseLogin;
+import com.example.itdev.izinzin.service.response.ResponseManufacture;
+import com.example.itdev.izinzin.service.response.ResponseMessage;
+import com.example.itdev.izinzin.service.response.ResponseNote;
+import com.example.itdev.izinzin.service.response.ResponseNoteDetail;
+import com.example.itdev.izinzin.service.response.ResponseParity;
+import com.example.itdev.izinzin.service.response.ResponsePartner;
+import com.example.itdev.izinzin.service.response.ResponseProductFull;
+import com.example.itdev.izinzin.service.response.ResponseReportProduct;
+import com.example.itdev.izinzin.service.response.ResponseShop;
+import com.example.itdev.izinzin.service.response.ResponseStaff;
+import com.example.itdev.izinzin.service.response.ResponseChoice;
+import com.example.itdev.izinzin.service.response.ResponseSupplier;
+import com.example.itdev.izinzin.service.response.ResponseTimeline;
+import com.example.itdev.izinzin.service.response.ResponseUnit;
+
+import java.util.ArrayList;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
+
+public interface SOService {
+
+    @GET("user")
+    Call<ResponseLogin> logIn(@QueryMap Map<String, Object> option);
+
+    /*-----------------------Overview-------------------------------*/
+    @GET("revenue?format=json")
+    Call<ArrayList<ResponseTimeline>> getOverview(@QueryMap Map<String, Object> option);
+    @GET("report_product?format=json")
+    Call<ArrayList<ResponseReportProduct>> getReportTopProduct(@QueryMap Map<String, Object> option);
+
+    @GET("product?format=json")
+    Call<ArrayList<ResponseProductFull>> getProduct(@QueryMap Map<String, Object> option);
+    @GET("product_single?format=json")
+    Call<ResponseDetailProduct> getDetailProduct(@QueryMap Map<String, Object> option);
+    @GET("inventory_single?format=json")
+    Call<ArrayList<ResponseDetailProductInventory>> getDetailInventoryProduct(@QueryMap Map<String, Object> option);
+    @GET("search_product?format=json")
+    Call<ArrayList<ResponseProductFull>> getProductSearch(@QueryMap Map<String, Object> option);
+
+    @GET("storage_full?format=json")
+    Call<ArrayList<ResponsePartner>> getStorage(@QueryMap Map<String, Object> option);
+
+    /*-----------------------Note information-------------------------------*/
+    @GET("report_order?format=json")
+    Call<ArrayList<ResponseTimeline>> getReportOrder(@QueryMap Map<String, Object> option);
+    @GET("order?format=json")
+    Call<ArrayList<ResponseNote>> getOrder(@QueryMap Map<String, Object> option);
+    @GET("order_detail?format=json")
+    Call<ResponseNoteDetail> getOrderDetail(@QueryMap Map<String, Object> option);
+
+    @GET("report_refund?format=json")
+    Call<ArrayList<ResponseTimeline>> getReportRefund(@QueryMap Map<String, Object> option);
+    @GET("refund?format=json")
+    Call<ArrayList<ResponseNote>> getRefund(@QueryMap Map<String, Object> option);
+    @GET("refund_detail?format=json")
+    Call<ResponseNoteDetail> getRefundDetail(@QueryMap Map<String, Object> option);
+
+    @GET("report_input?format=json")
+    Call<ArrayList<ResponseTimeline>> getReportInput(@QueryMap Map<String, Object> option);
+    @GET("input?format=json")
+    Call<ArrayList<ResponseNote>> getInput(@QueryMap Map<String, Object> option);
+    @GET("input_detail?format=json")
+    Call<ResponseNoteDetail> getInputDetail(@QueryMap Map<String, Object> option);
+
+    @GET("report_return?format=json")
+    Call<ArrayList<ResponseTimeline>> getReportReturn(@QueryMap Map<String, Object> option);
+    @GET("return?format=json")
+    Call<ArrayList<ResponseNote>> getReturn(@QueryMap Map<String, Object> option);
+    @GET("return_detail?format=json")
+    Call<ResponseNoteDetail> getReturnDetail(@QueryMap Map<String, Object> option);
+
+    @GET("transfer?format=json")
+    Call<ArrayList<ResponseNote>> getTransfer(@QueryMap Map<String, Object> option);
+    @GET("transfer_detail?format=json")
+    Call<ResponseNoteDetail> getTransferDetail(@QueryMap Map<String, Object> option);
+
+    @GET("disposal?format=json")
+    Call<ArrayList<ResponseNote>> getDisposal(@QueryMap Map<String, Object> option);
+    @GET("disposal_detail?format=json")
+    Call<ResponseNoteDetail> getDisposalDetail(@QueryMap Map<String, Object> option);
+
+    @GET("parity?format=json")
+    Call<ArrayList<ResponseParity>> getParity(@QueryMap Map<String, Object> option);
+
+    /*-----------------------Partner-------------------------------*/
+    @GET("customer?format=json")
+    Call<ArrayList<ResponsePartner>> getCustomer(@QueryMap Map<String, Object> option);
+    @GET("customer_detail?format=json")
+    Call<ResponseDetailCustomer> getDetailCustomer(@QueryMap Map<String, Object> option);
+    @GET("customer_deals?format=json")
+    Call<ArrayList<ResponseHistoryCustomer>> getHistoryCustomer(@QueryMap Map<String, Object> option);
+
+    @GET("supplier?format=json")
+    Call<ArrayList<ResponsePartner>> getSupplier(@QueryMap Map<String, Object> option);
+    @GET("supplier_detail?format=json")
+    Call<ResponseSupplier> getDetailSupplier(@QueryMap Map<String, Object> option);
+    @GET("supplier_deals?format=json")
+    Call<ArrayList<ResponseHistorySupplier>> getHistorySupplier(@QueryMap Map<String, Object> option);
+
+
+    /*------------------------Shop--------------------------------*/
+    @GET("staff?format=json")
+    Call<ArrayList<ResponseStaff>> getStaff(@QueryMap Map<String, Object> option);
+
+    @GET("shop?format=json")
+    Call<ResponseShop> getShop(@QueryMap Map<String, Object> option);
+
+    /*------------------------Product Component-----------------------------*/
+    @GET("unit_all?format=json")
+    Call<ArrayList<ResponseChoice>> getUnitProduct(@QueryMap Map<String, Object> option);
+
+    @GET("group_all?format=json")
+    Call<ArrayList<ResponseChoice>> getCategoryProduct(@QueryMap Map<String, Object> option);
+
+    @GET("manufacture_all?format=json")
+    Call<ArrayList<ResponseChoice>> getOriginProduct(@QueryMap Map<String, Object> option);
+
+    @GET("supplier_all?format=json")
+    Call<ArrayList<ResponseChoice>> getSupplierProduct(@QueryMap Map<String, Object> option);
+
+    @GET("unit_all?format=json")
+    Call<ArrayList<ResponseUnit>> getUnit(@QueryMap Map<String, Object> option);
+
+    @GET("group_all?format=json")
+    Call<ArrayList<ResponseCategory>> getCategory(@QueryMap Map<String, Object> option);
+
+    @GET("manufacture_all?format=json")
+    Call<ArrayList<ResponseManufacture>> getManufacture(@QueryMap Map<String, Object> option);
+
+    @GET("supplier_all?format=json")
+    Call<ArrayList<ResponseSupplier>> getSupplierEditPro(@QueryMap Map<String, Object> option);
+
+    @POST("new_supplier_name")
+    Call<ResponseMessage> createSupplierName(@Body Map<String, Object> params);
+
+    /*--------------------------Init--------------------------------*/
+    @GET("storage?format=json")
+    Call<ArrayList<ResponseChoice>> getStorageShort(@QueryMap Map<String, Object> option);
+
+    @GET("user_group?format=json")
+    Call<ArrayList<ResponseGroup>> getUserGroup(@QueryMap Map<String, Object> option);
+
+    /* ------------------Create/Update component------------------ */
+    // create component
+    @POST("unit")
+    Call<ResponseMessage> createUnit(@Body Map<String, Object> params);
+
+    @POST("category")
+    Call<ResponseMessage> createCategory(@Body Map<String, Object> params);
+
+    @POST("manufacturer")
+    Call<ResponseMessage> createManufacturer(@Body Map<String, Object> params);
+
+    @POST("product")
+    Call<ResponseMessage> createProduct(@Body Map<String, Object> params);
+
+    @POST("customer")
+    Call<ResponseMessage> createCustomer(@Body Map<String, Object> params);
+
+    @POST("supplier")
+    Call<ResponseMessage> createSupplier(@Body Map<String, Object> params);
+
+    @POST("new_user")
+    Call<ResponseMessage> createStaff(@Body Map<String, Object> params);
+
+    @POST("update_user")
+    Call<ResponseMessage> updateStaff(@Body Map<String, Object> params);
+
+    // storage
+    @POST("storage")
+    Call<ResponseMessage> interactStorage(@Body Map<String, Object> params);
+
+    @POST("user_group")
+    Call<ResponseMessage> interactUserGroup(@Body Map<String, Object> params);
+
+}

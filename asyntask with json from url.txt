@@ -1,0 +1,48 @@
+//read json from url using asyntask
+public class Json extends AsyncTask<Void, Void, String> {
+    
+    @Override
+    protected String doInBackground(Void... voids) {
+
+        InputStream is = null;
+        String result = "";
+        JSONObject jsonObject = null;
+
+        // HTTP
+        try {
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpGet httppost = new HttpGet("http://192.168.1.8/2018/apiserver/book/user_group?format=json");
+            HttpResponse response = httpclient.execute(httppost);
+            HttpEntity entity = response.getEntity();
+            is = entity.getContent();
+
+        } catch (Exception e) {
+            Log.d("exception", "http = " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+
+        // Read response to string
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "utf-8"), 8);
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+            is.close();
+            result = sb.toString();
+        } catch (Exception e) {
+            Log.d("exception", "read file = " + e.getMessage());
+            return null;
+        }
+        return result;
+
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        super.onPostExecute(s);
+        Log.i("json", s);
+    }
+}

@@ -1,0 +1,48 @@
+//shared preferences
+    private void loadGameSetting() {
+        SharedPreferences sharedPreferences = this.getSharedPreferences("saveSetting", Context.MODE_PRIVATE);
+
+        if (sharedPreferences != null) {
+
+            String str = sharedPreferences.getString("", null);
+            select = sharedPreferences.getInt("select",0);
+            locList = new ArrayList<>();
+            try {
+                JSONArray jsonarray = new JSONArray(str);
+                for (int i = 0; i < jsonarray.length(); i++) {
+                    JSONObject jsonobject = jsonarray.getJSONObject(i);
+                    Product product = new Product();
+                    product.setPrdName(jsonobject.getString("prd_name"));
+                    product.setPrdCode(jsonobject.getString("prd_code"));
+                    product.setPrdPrice(Integer.parseInt(jsonobject.getString("prd_sell_price")));
+                    product.setPrdQuatity(Integer.parseInt(jsonobject.getString("prd_sls")));
+                    product.setPdr_Picture(R.drawable.download);
+                    locList.add(product);
+                }
+                productAdapter = new ProductAdapter(MainActivity.this, R.layout.custom_listview_products, locList);
+                lvPrd.setAdapter(productAdapter);
+                productAdapter.notifyDataSetChanged();
+                Toast.makeText(this, "Load... saved setting", Toast.LENGTH_LONG).show();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            Toast.makeText(this, "Use the default  setting", Toast.LENGTH_LONG).show();
+        }
+    }
+
+//save
+    public String doSave() {
+
+        SharedPreferences sharedPreferences = this.getSharedPreferences("saveSetting", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        String json = toJSON(locList);
+        editor.putString("", json);
+        editor.putInt("select",select);
+        editor.apply();
+        editor.apply();
+        Toast.makeText(this, "saved  setting!", Toast.LENGTH_LONG).show();
+        return json;
+
+    }

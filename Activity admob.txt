@@ -1,0 +1,28 @@
+AdsManager mAdsManager = null;
+AdView mAdView;
+
+if (mAdsManager == null) {
+            mAdsManager = new AdsManager(ChiTietTuViActivity.this);
+        }
+// using banner
+mAdView = findViewById(R.id.adView);
+        Utils.adView(ChiTietTuViActivity.this,mAdView);
+
+// using fullscreen
+if (mAdsManager != null && Integer.parseInt(namSinh) % 2 == 0 && position % 2 == 0 ||Integer.parseInt(namSinh) % 2 != 0 & position % 2 == 0 ) {
+            mAdsManager.showFullAds(ChiTietTuViActivity.this);
+        } else {
+            finish();
+        }
+// Xml
+xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+ <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+    </com.google.android.gms.ads.AdView>
