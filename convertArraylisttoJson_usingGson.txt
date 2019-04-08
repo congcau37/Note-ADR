@@ -1,0 +1,30 @@
+private String JSONListConverter(ArrayList<Challenge> list){
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
+        String JSONObject = gson.toJson(list);
+        Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
+        String prettyJson = prettyGson.toJson(list);
+        return prettyJson;
+    }
+//cach 2
+
+ private StringBuffer JSONListConverter(ArrayList<Challenge> list) {
+        StringBuffer jsonBuffer = new StringBuffer("{ \"plankchallenge\": [");
+        boolean first = true;
+        for (Challenge challenge : list) {
+            if (first)
+                first = false;
+            else
+                jsonBuffer.append(",");
+            jsonBuffer.append(getJsonFromChallenge(challenge));
+        }
+        jsonBuffer.append("]}");
+        return jsonBuffer;
+    }
+
+    private String getJsonFromChallenge(Challenge challenge) {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.serializeNulls();
+        Gson gson = gsonBuilder.create();
+        return gson.toJson(challenge);
+    }

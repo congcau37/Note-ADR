@@ -1,0 +1,9 @@
+Apk Tools
++ View XML, String file...
+--> apktool.bat d ".apk" (Run cmd)
++ View Source code:
+- Extract file apk
+-cmd : E:\My Project\Tools\tools\dex2jar + dex-tools-0.0.9.15.jar + classes.dex 
+-
+- Convert classes.dex -> jar = Dex2Jar tool
+- Use 'jd-gui tool to open .jar file

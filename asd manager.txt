@@ -1,12 +1,22 @@
-package com.wishesgif.congdev37.wishes2019.until;
+//xml
+xmlns:ads="http://schemas.android.com/apk/res-auto"
+//
+<com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+    </com.google.android.gms.ads.AdView>
 
-import android.content.Context;
-import android.support.v4.app.DialogFragment;
+//
+AdView mAdView;
+	mAdView = findViewById(R.id.adView);
+        Utils.adView(this,mAdView);
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.wishesgif.congdev37.wishes2019.R;
+//code
 
 public class AdsManager {
 
@@ -64,7 +74,4 @@ public class AdsManager {
 
         }
     }
-
-
-
 }
