@@ -1,0 +1,3 @@
+https://guides.codepath.com/android/creating-and-using-fragments
+//tieng viet
+https://viblo.asia/p/android-co-the-ban-chua-biet-fragment-eW65GxXLKDO
