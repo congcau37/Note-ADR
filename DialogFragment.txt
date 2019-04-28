@@ -1,0 +1,11 @@
+// full dialog
+setStyle(DialogFragment.STYLE_NORMAL, R.style.AppTheme_NoActionBar);
+//adding form
+private void addForm(DialogFragment dialogFragment,int position,String key){
+        FragmentManager ft = getSupportFragmentManager();
+        Bundle bundle = new Bundle();
+        bundle.putString("key",key);
+        bundle.putInt("position",position);
+        dialogFragment.setArguments(bundle);
+        dialogFragment.show(ft, "dialog");
+    }
