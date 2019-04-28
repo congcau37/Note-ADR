@@ -1,4 +1,4 @@
-dialogFM->dialogFM
+﻿dialogFM->dialogFM
 private void openAddingForm(DialogFragment dialogFragment, String key, ArrayList<ProductGetData> data) {
         FragmentManager ft = getChildFragmentManager();
         Bundle bundle = new Bundle();
@@ -16,3 +16,21 @@ private void openAddingForm(DialogFragment dialogFragment, String key, ArrayList
         Bundle bundle = getArguments();
 	prdUnitList = bundle.getParcelableArrayList(ConstantKey.KEY_PASS_UNIT);
     }
+
+// full dialog
+setStyle(DialogFragment.STYLE_NORMAL, R.style.AppTheme_NoActionBar);
+//adding form
+private void addForm(DialogFragment dialogFragment,int position,String key){
+        FragmentManager ft = getSupportFragmentManager();
+        Bundle bundle = new Bundle();
+        bundle.putString("key",key);
+        bundle.putInt("position",position);
+        dialogFragment.setArguments(bundle);
+        dialogFragment.show(ft, "dialog");
+    }
+
+// kiểm tra có tồn tại
+if(getParentFragment() instanceof FragmentForm)
+
+// gọi hàm của fragment chứa dialogftagment
+((FragmentForm) getParentFragment()).method(param);
