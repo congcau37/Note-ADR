@@ -5,9 +5,7 @@
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_search_apply:
-//                        String name = edtSearchName.getText().toString().trim();
-//                        openAddingForm(new ProductResultSearch(), ConstantKey.KEY_PASS_PRODUCT_RESULT, filter(name, status, price));
-                        searchServer();
+
                         break;
                     default:
                         return false;
@@ -42,6 +40,7 @@
     </android.support.design.widget.AppBarLayout>
 
     </android.support.design.widget.AppBarLayout>
+	
 //style
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -51,7 +50,8 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-//
+
+//code
 private void initToolbar() {
         toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_back);
@@ -61,5 +61,5 @@ private void initToolbar() {
                 finish();
             }
         });
-        toolbar.setTitle("Danh sach xe");
+        toolbar.setTitle("");
     }

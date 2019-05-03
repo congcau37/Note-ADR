@@ -1,0 +1,1 @@
+int res = imgType.getContext().getResources().getIdentifier(listData.get(i).getThumbnail(), "drawable", holder.imgType.getContext().getPackageName());

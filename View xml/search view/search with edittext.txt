@@ -1,5 +1,4 @@
- //T�m ki?m
-//activity
+//activity tìm kiếm
     public void searchPrd() {
 
         edtSearchPrd.addTextChangedListener(new TextWatcher() {
@@ -18,9 +17,9 @@
             @Override
             public void onTextChanged(CharSequence arg0, int arg1, int arg2,
                                       int arg3) {
-                String text = edtSearchPrd.getText().toString().toLowerCase(Locale.getDefault());
-                productAdapter.filter(text);
-                lvPrd.setAdapter(productAdapter);
+                String text = edtSearch.getText().toString().toLowerCase(Locale.getDefault());
+                Adapter.filter(text);
+                lv.setAdapter(Adapter);
 
             }
         });
@@ -30,23 +29,23 @@
 public void filter(String charText) {
 
         charText = charText.toLowerCase(Locale.getDefault());
-        productArrayList.clear();
+        mList.clear();
         if (charText.length() == 0) {
-            productArrayList.addAll(listPrd);
+            mList.addAll(mData);
 
         }
         else
         {
-            for (Product wp : listPrd)
+            for (Model model : mData)
             {
-                if (wp.getPrdName().toLowerCase(Locale.getDefault()).contains(charText))
+                if (model.getName().toLowerCase(Locale.getDefault()).contains(charText))
                 {
-                    productArrayList.add(wp);
-                    Log.d("aaa",""+wp.getPrdName());
+                    mList.add(model);
+                    //Log.d("aaa",""+model.getName());
                 }
             }
         }
 
-        ProductAdapter productAdapter = new ProductAdapter(context, R.layout.custom_listview_products,productArrayList);
-        productAdapter.notifyDataSetChanged();
+        Adapter Adapter = new Adapter(context, R.layout.custom_view,mList);
+        Adapter.notifyDataSetChanged();
     }

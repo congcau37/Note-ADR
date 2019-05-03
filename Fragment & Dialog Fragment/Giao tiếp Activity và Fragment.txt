@@ -1,11 +1,11 @@
-//kh?i t?o fragment
+//khởi tạo fragment
 public void initFragment(int id, android.support.v4.app.Fragment fragment, String TAG) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(id, fragment, TAG).commit();
 
     }
 
-//nh?n DL from Fragment
+//nhận DL from Fragment
     public void receiveDataFromFragment(Product prd) {
         Intent intent = getIntent();
         intent.putExtra("resultname", prd.getPrdName());
@@ -14,15 +14,15 @@ public void initFragment(int id, android.support.v4.app.Fragment fragment, Strin
         setResult(1, intent);
         finish();
     }
-//activity(1) foresult
- Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+//activity start
+Intent intent = new Intent(MainActivity.this, Main2Activity.class);
                 Bundle bd = new Bundle();
                 Product prd = new Product(locList.get(position).getPrdName(), locList.get(position).getPrdCode(), locList.get(position).getPrdPrice(), locList.get(position).getPrdQuatity(), R.drawable.download);
                 bd.putSerializable("prd", prd);
                 bd.putInt("id", position);
                 intent.putExtras(bd);
                 startActivityForResult(intent, 0);
-//result
+//nhận kêt quả trả về
  @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -35,7 +35,7 @@ public void initFragment(int id, android.support.v4.app.Fragment fragment, Strin
         }
     }
 
-  //activity nh?n DL from Activity(1)
+//activity nhận DL from Activity start
     public void receiveDataFromActivity() {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();

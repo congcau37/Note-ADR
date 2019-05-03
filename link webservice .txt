@@ -1,9 +1,0 @@
-//GsonFormater
-http://www.jsonschema2pojo.org/
-
-//api with Retrofit 2 HTTP Client
-https://code.tutsplus.com/vi/tutorials/getting-started-with-retrofit-2--cms-27792
-
-// webservice
-http://kienthucweb.net/tao-web-service-voi-php-va-mysql.html
-https://kungfuphp.com/tong-hop-php/huong-dan-tao-web-service-voi-php-va-mysql.html

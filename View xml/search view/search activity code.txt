@@ -1,0 +1,39 @@
+//Aactivity
+SearchView mSearchView = (SearchView) mSearch.getActionView();
+mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+				mAdapter.filter(newText);
+                    return false;
+                }
+            });
+			
+// adapter
+public void filter(String charText) {
+
+        charText = charText.toLowerCase(Locale.getDefault());
+        mList.clear();
+        if (charText.length() == 0) {
+            mList.addAll(mData);
+
+        }
+        else
+        {
+            for (Model model : mData)
+            {
+                if (model.getName().toLowerCase(Locale.getDefault()).contains(charText))
+                {
+                    mList.add(model);
+                    //Log.d("aaa",""+model.getName());
+                }
+            }
+        }
+
+        Adapter Adapter = new Adapter(context, R.layout.custom_view,mList);
+        Adapter.notifyDataSetChanged();
+    }
