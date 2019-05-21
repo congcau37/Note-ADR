@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/lnContent" android:background="@drawable/bg_white_no_border_no_radius_selector" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="@dimen/font_size_medium_small" android:id="@id/tvName" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_medium" android:layout_marginTop="@dimen/margin_medium" android:layout_marginBottom="@dimen/margin_medium" android:text="Cốc" android:layout_weight="1.0" android:alpha="0.8" style="@style/TextViewDefault" />
+        <ImageView android:id="@id/ivCheck" android:visibility="gone" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginRight="@dimen/margin_medium" android:src="@drawable/ic_check_filter" android:scaleType="fitCenter" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/lnBottom" android:background="@color/color_divider" android:layout_width="fill_parent" android:layout_height="0.30000007dip" />
+</LinearLayout>

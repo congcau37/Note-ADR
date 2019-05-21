@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/title" android:background="@color/my_primary" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/font_size_medium_small" android:textColor="@color/color_white" android:gravity="center_horizontal" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_medium" android:layout_marginTop="@dimen/margin_normal" android:layout_marginBottom="@dimen/margin_normal" android:text="@string/time_param" style="@style/TextViewDefaultSingleLine" />
+    </LinearLayout>
+    <ListView android:id="@id/lvParam" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

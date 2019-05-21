@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/title" android:background="@color/my_primary" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/font_size_medium_small" android:textColor="@color/color_white" android:gravity="center_vertical" android:id="@id/tv_title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_medium" android:layout_marginTop="@dimen/margin_medium" android:layout_marginBottom="@dimen/margin_medium" android:text="CUKCUK LITE" android:layout_weight="1.0" style="@style/TextViewDefaultSingleLine" />
+    <ImageButton android:id="@id/btn_title_close" android:background="@drawable/bg_action_bar_selector" android:paddingLeft="@dimen/margin_normal" android:paddingTop="@dimen/margin_normal_small" android:paddingRight="@dimen/margin_normal" android:paddingBottom="@dimen/margin_normal_small" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_close_white" android:contentDescription="@string/img_content_description" />
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/background_color_gray" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/title" android:background="@color/color_primary" android:layout_width="fill_parent" android:layout_height="@dimen/size_title_bar">
+        <ImageButton android:id="@id/imgBtnBack" android:background="@drawable/bg_action_bar_selector" android:layout_width="@dimen/size_title_bar" android:layout_height="@dimen/size_title_bar" android:src="@drawable/ic_arrow_back" android:layout_centerVertical="true" />
+        <TextView android:ellipsize="marquee" android:gravity="center" android:layout_gravity="center" android:id="@id/tvTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_medium" android:layout_marginRight="@dimen/margin_medium" android:text="@string/title_link_account" android:layout_centerInParent="true" style="@style/TextHeader" />
+    </RelativeLayout>
+    <TextView android:textSize="@dimen/font_size_medium_small" android:background="@android:color/white" android:paddingLeft="@dimen/margin_medium" android:paddingTop="@dimen/margin_medium" android:paddingBottom="@dimen/margin_medium" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/content_link_account" style="@style/TextViewDefaultSingleLine" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/lnLinkFacebook" android:background="@android:color/white" android:paddingLeft="@dimen/margin_medium" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_medium" android:layout_marginRight="@dimen/margin_medium" android:layout_marginBottom="@dimen/margin_medium">
+            <ImageView android:id="@id/imgLinkFaceebok" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/link_account_facebook_gray" />
+            <LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/margin_medium" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/font_size_medium_small" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/linked_account_title_facebook" style="@style/TextViewDefaultBoldSingleLine" />
+                <TextView android:ellipsize="marquee" android:id="@id/tvFacebookName" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_small_small" android:text="@string/content_not_linked" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" style="@style/TextViewDefaultSingleLine" />
+            </LinearLayout>
+            <ImageView android:id="@id/imgSwitchFacebook" android:layout_width="70.0dip" android:layout_height="35.0dip" android:src="@drawable/toggle_off" />
+        </LinearLayout>
+        <include layout="@layout/view_vertical_divider" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/lnLinkGoogle" android:background="@android:color/white" android:paddingLeft="@dimen/margin_medium" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_medium" android:layout_marginRight="@dimen/margin_medium" android:layout_marginBottom="@dimen/margin_medium">
+            <ImageView android:id="@id/imgLinkGoogle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/link_account_google_gray" />
+            <LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/margin_medium" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/font_size_medium_small" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/linked_account_title_google" style="@style/TextViewDefaultBoldSingleLine" />
+                <TextView android:ellipsize="marquee" android:id="@id/tvGoogleName" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_small_small" android:text="@string/content_not_linked" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" style="@style/TextViewDefaultSingleLine" />
+            </LinearLayout>
+            <ImageView android:id="@id/imgSwitchGoogle" android:layout_width="70.0dip" android:layout_height="35.0dip" android:src="@drawable/toggle_off" />
+        </LinearLayout>
+        <include layout="@layout/view_vertical_divider" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/realContent" android:padding="@dimen/margin_normal_small" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/imgLayout" android:layout_width="@dimen/inventory_item_bg_size" android:layout_height="@dimen/inventory_item_bg_size" />
+    <ImageView android:id="@id/imgcheck" android:visibility="gone" android:layout_width="@dimen/icon_inventory_item_size" android:layout_height="@dimen/icon_inventory_item_size" android:src="@drawable/ic_check_accept" android:layout_centerInParent="true" />
+</RelativeLayout>

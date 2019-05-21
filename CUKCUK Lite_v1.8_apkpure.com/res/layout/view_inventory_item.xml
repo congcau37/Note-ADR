@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/lnContent" android:background="@drawable/bg_white_no_border_no_radius_selector" android:layout_width="fill_parent" android:layout_height="@dimen/menu_height_inventory_item"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/margin_medium" android:paddingTop="@dimen/margin_normal" android:paddingBottom="@dimen/margin_normal" android:layout_width="fill_parent" android:layout_height="fill_parent">|<RelativeLayout android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/img_bg_icon_color" android:layout_width="@dimen/inventory_item_bg_size" android:layout_height="@dimen/inventory_item_bg_size" />
+            <ImageView android:id="@id/imgIcon" android:layout_width="@dimen/icon_inventory_item_size" android:layout_height="@dimen/icon_inventory_item_size" android:src="@drawable/ic_default" android:scaleType="fitXY" android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <LinearLayout android:gravity="center_vertical" android:paddingLeft="@dimen/margin_medium" android:paddingRight="@dimen/margin_small" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/font_size_medium_small" android:textStyle="bold" android:textColor="@color/color_dark_gray" android:id="@id/tvInventoryItemName" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="Trà đá" android:alpha="0.8" />
+                <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <TextView android:textSize="@dimen/font_size_normal" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="Giá bán:" />
+                    <TextView android:textSize="@dimen/font_size_normal" android:gravity="center_vertical" android:id="@id/tvUnitPrice" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/margin_small" android:text="5.000" />
+                    <LinearLayout android:orientation="horizontal" android:id="@id/lnInactiveNotify" android:background="@drawable/bg_inactive" android:paddingLeft="@dimen/margin_normal" android:paddingRight="@dimen/margin_normal" android:paddingBottom="@dimen/margin_small_small" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_normal">
+                        <TextView android:textSize="@dimen/font_size_normal_small" android:textColor="@color/color_white" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/inactive" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <ImageView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_chevron_right" android:scaleType="center" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:background="@color/divider_color" android:layout_width="fill_parent" android:layout_height="0.6dip" />
+</LinearLayout>

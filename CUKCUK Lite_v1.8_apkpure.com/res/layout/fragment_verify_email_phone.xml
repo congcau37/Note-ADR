@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/margin_medium" android:paddingTop="@dimen/margin_medium" android:paddingRight="@dimen/margin_medium" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/content_verify_email_phone" style="@style/TextViewDefault" />
+    <EditText android:id="@id/etEmailPhone" android:layout_width="fill_parent" android:layout_height="@dimen/size_tab_bar" android:layout_marginTop="@dimen/margin_medium" android:hint="@string/email_phone_hint" android:inputType="textEmailAddress" style="@style/EditTextWithBorderDefaultSingleLine" />
+    <Button android:id="@id/btnContinue" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_extra_large" android:text="@string/button_continue" style="@style/ButtonDefault" />
+</LinearLayout>

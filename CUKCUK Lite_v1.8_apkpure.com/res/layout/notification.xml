@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:background="@color/iSMACNotificationHead" android:layout_width="fill_parent" android:layout_height="@dimen/bar_header">
+        <ImageButton android:id="@id/btnBack" android:background="@drawable/selector_button_back" android:layout_width="@dimen/bar_header" android:layout_height="@dimen/bar_header" android:src="@drawable/ic_back_white" />
+        <TextView android:textColor="@color/iSMACNotificationHeadText" android:gravity="center_horizontal" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="50.0dip" android:text="@string/NotificationHeaderTitle" android:singleLine="true" style="@style/Text_Header" />
+    </LinearLayout>
+    <TextView android:textSize="16.0sp" android:textColor="#ff000000" android:layout_gravity="center" android:id="@id/txtEmpty" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:text="@string/NotificationListEmpty" />
+    <vn.com.misa.ismaclibrary.MISAPulltoRefreshListView android:id="@id/pull_to_refresh_listview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:cacheColorHint="@android:color/white" />
+</LinearLayout>

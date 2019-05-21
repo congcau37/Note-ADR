@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_gravity="center_vertical" android:id="@id/rlIcon" android:paddingTop="@dimen/margin_normal" android:paddingBottom="@dimen/margin_normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_normal" android:layout_marginRight="@dimen/margin_small">
+        <ImageView android:id="@id/ivBackgroundColor" android:layout_width="@dimen/icon_bg_report_detail_size" android:layout_height="@dimen/icon_bg_report_detail_size" />
+        <TextView android:textSize="@dimen/font_size_medium_small" android:textStyle="bold" android:textColor="@color/color_white" android:id="@id/tvNumber" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/margin_normal" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/font_size_medium_small" android:textColor="@color/color_text_main" android:id="@id/tvInventoryItemName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Trà đá" />
+                <TextView android:textSize="@dimen/font_size_normal_small" android:id="@id/tvQuantity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="952 cốc" />
+            </LinearLayout>
+            <TextView android:textSize="@dimen/font_size_medium_small" android:textColor="@color/color_text_main" android:gravity="right" android:id="@id/tvAmount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_medium_small" android:text="1.000.000" />
+        </LinearLayout>
+        <View android:id="@id/vSparator" android:background="@color/color_divider" android:layout_width="fill_parent" android:layout_height="0.6dip" />
+    </LinearLayout>
+</LinearLayout>

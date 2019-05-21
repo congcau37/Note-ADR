@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bg_dialog_calculator" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/margin_normal_small" android:paddingBottom="@dimen/margin_normal_small" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+            <LinearLayout android:gravity="center|right" android:orientation="horizontal" android:focusableInTouchMode="false" android:descendantFocusability="beforeDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <vn.com.misa.android_cukcuklite.customview.MISAEditTextCalculator android:textSize="@dimen/font_size_large_small" android:textStyle="bold" android:textColor="@color/color_black" android:gravity="right" android:id="@id/MISA_edit_Amount" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_normal" android:layout_marginRight="@dimen/margin_medium" android:layout_marginBottom="@dimen/margin_normal" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:background="@color/color_background_main" android:padding="@dimen/margin_medium_small" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false" android:weightSum="4.0">
+                    <TextView android:id="@id/dialog_key_btnKey7" android:layout_width="0.0dip" android:layout_height="@dimen/height_keyboard_payment" android:text="7" android:layout_weight="1.0" style="@style/TextViewNumberDarkPayment" />
+                    <TextView android:id="@id/dialog_key_btnKey8" android:layout_width="0.0dip" android:layout_height="@dimen/height_keyboard_payment" android:text="8" android:layout_weight="1.0" style="@style/TextViewNumberDarkPayment" />
+                    <TextView android:id="@id/dialog_key_btnKey9" android:layout_width="0.0dip" android:layout_height="@dimen/height_keyboard_payment" android:text="9" android:layout_weight="1.0" style="@style/TextViewNumberDarkPayment" />
+                    <ImageButton android:id="@id/dialog_key_btnKeyBack" android:background="@drawable/bg_key_selector" android:layout_width="0.0dip" android:layout_height="@dimen/height_keyboard_payment" android:src="@drawable/ic_back_keyboard" android:scaleType="center" android:layout_weight="1.0" android:contentDescription="@null" style="@style/TextViewNumberDarkPayment" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false" android:weightSum="4.0">
+                    <TextView android:id="@id/dialog_key_btnKey4" android:layout_width="0.0dip" android:layout_height="@dimen/height_keyboard_payment" android:text="4" android:layout_weight="1.0" style="@style/TextViewNumberDarkPayment" />
+                    <TextView android:id="@id/dialog_key_btnKey5" android:layout_width="0.0dip" android:layout_height="@dimen/height_keyboard_payment" android:text="5" android:layout_weight="1.0" style="@style/TextViewNumberDarkPayment" />
+                    <TextView android:id="@id/dialog_key_btnKey6" android:layout_width="0.0dip" android:layout_height="@dimen/height_keyboard_payment" android:text="6" android:layout_weight="1.0" style="@style/TextViewNumberDarkPayment" />
+                    <TextView android:id="@id/dialog_key_btnKeyClear" android:layout_width="0.0dip" android:layout_height="@dimen/height_keyboard_payment" android:text="C" android:layout_weight="1.0" style="@style/TextViewNumberDarkPayment" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false" android:weightSum="4.0">
+                    <TextView android:id="@id/dialog_key_btnKey1" android:layout_width="0.0dip" android:layout_height="@dimen/height_keyboard_payment" android:text="1" android:layout_weight="1.0" style="@style/TextViewNumberDarkPayment" />
+                    <TextView android:id="@id/dialog_key_btnKey2" android:layout_width="0.0dip" android:layout_height="@dimen/height_keyboard_payment" android:text="2" android:layout_weight="1.0" style="@style/TextViewNumberDarkPayment" />
+                    <TextView android:id="@id/dialog_key_btnKey3" android:layout_width="0.0dip" android:layout_height="@dimen/height_keyboard_payment" android:layout_marginRight="0.5dip" android:text="3" android:layout_weight="1.0" style="@style/TextViewNumberDarkPayment" />
+                    <TextView android:id="@id/tvDecimalSperator" android:layout_width="0.0dip" android:layout_height="@dimen/height_keyboard_payment" android:layout_marginRight="0.5dip" android:text="," android:layout_weight="1.0" style="@style/TextViewNumberDarkPayment" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false" android:weightSum="4.0">
+                    <LinearLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                        <TextView android:id="@id/dialog_key_btnKey0" android:layout_width="fill_parent" android:layout_height="@dimen/height_keyboard_payment" android:text="0" style="@style/TextViewNumberDarkPayment" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                        <TextView android:id="@id/dialog_key_btnKey000" android:layout_width="fill_parent" android:layout_height="@dimen/height_keyboard_payment" android:text="000" style="@style/TextViewNumberDarkPayment" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="2.0">
+                        <TextView android:textSize="@dimen/font_size_medium_small" android:gravity="center" android:id="@id/btnOK" android:background="@drawable/selector_button_main_color" android:layout_width="fill_parent" android:layout_height="@dimen/height_keyboard_payment" android:layout_margin="@dimen/margin_normal_small" android:text="ĐỒNG Ý" style="@style/TextButtonDefault" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/margin_medium" android:paddingBottom="@dimen/margin_medium" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <TextView android:textSize="@dimen/font_size_normal" android:textColor="@color/color_dark_gray" android:id="@id/tv_title_suggest_money" android:paddingLeft="@dimen/margin_normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_medium" android:text="@string/title_suggest_money" android:textAllCaps="true" />
+            <android.support.v7.widget.RecyclerView android:id="@id/rcv_suggest_money" android:paddingLeft="@dimen/margin_keyboard" android:paddingRight="@dimen/margin_keyboard" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_medium_small" android:layout_marginTop="@dimen/margin_normal" android:layout_marginRight="@dimen/margin_medium_small" android:layout_marginBottom="@dimen/margin_normal" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

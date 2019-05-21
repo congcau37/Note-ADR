@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/bg_dialog_normal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="60.0dip" android:layout_height="60.0dip" android:layout_marginTop="@dimen/margin_large_small" android:src="@drawable/ic_done" android:scaleType="fitCenter" />
+    <TextView android:textSize="@dimen/font_size_medium_small" android:textColor="@color/text_color_gray" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_medium" android:layout_marginTop="@dimen/margin_large_small" android:layout_marginRight="@dimen/margin_medium" android:text="@string/notify_initial_menu" />
+    <TextView android:id="@id/tvContinue" android:background="@drawable/selector_button_notify_initial_menu" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_extra_large" android:text="@string/button_continue" style="@style/TextButtonDefault" />
+</LinearLayout>

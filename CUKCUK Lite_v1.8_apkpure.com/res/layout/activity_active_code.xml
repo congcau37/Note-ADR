@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/color_white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/view_focus_thief" />
+    <RelativeLayout android:orientation="horizontal" android:background="@color/my_primary" android:layout_width="fill_parent" android:layout_height="@dimen/size_title_bar">
+        <ImageButton android:id="@id/imgBtnBack" android:background="@drawable/bg_action_bar_selector" android:layout_width="@dimen/size_title_bar" android:layout_height="@dimen/size_title_bar" android:src="@drawable/ic_arrow_back" />
+        <TextView android:id="@id/tvTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/active_code_title" android:layout_centerInParent="true" style="@style/TextTitlePage" />
+        <Button android:id="@id/btnDone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/done" android:layout_alignParentRight="true" style="@style/ButtonDefaultActionBar" />
+    </RelativeLayout>
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/margin_large_small" android:paddingTop="@dimen/margin_medium" android:paddingRight="@dimen/margin_large_small" android:paddingBottom="@dimen/margin_normal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/font_size_medium_small" android:id="@id/tvMessage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/activecode_message_phone" style="@style/TextViewDefault" />
+                <TextView android:textSize="@dimen/font_size_medium_small" android:id="@id/tvMessage_Resent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_medium" android:text="@string/activecode_message_resent_code" style="@style/TextViewDefault" />
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/bg_layout_white" android:paddingLeft="@dimen/margin_medium" android:paddingTop="@dimen/margin_normal" android:paddingRight="@dimen/margin_medium" android:paddingBottom="@dimen/margin_normal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_extra_large">
+                    <EditText android:textSize="@dimen/font_size_medium_small" android:id="@id/editActiveCode" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/input_active_code_hint" android:inputType="number" style="@style/EditTextRegister" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:paddingLeft="@dimen/margin_large_small" android:paddingRight="@dimen/margin_large_small" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/margin_extra_large">
+                <TextView android:id="@id/btnActive" android:background="@drawable/selector_button_main_color" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/acctive_upper" style="@style/TextButtonDefault" />
+                <TextView android:textColor="@color/my_primary" android:id="@id/btnResendCode" android:background="@drawable/bg_gray_with_border_radius_selector" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_normal" android:text="@string/resend_activecode_upper" style="@style/TextButtonDefault" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

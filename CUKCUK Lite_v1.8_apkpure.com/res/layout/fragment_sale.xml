@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/background_color_dark_gray" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.widget.RecyclerView android:id="@id/rcvOrder" android:background="@android:color/transparent" android:padding="@dimen/margin_medium_small" android:visibility="gone" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="vertical" android:id="@id/lnNoData" android:background="@color/color_white" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/view_water_mark" />
+        <TextView android:textSize="@dimen/font_size_medium" android:textStyle="bold" android:gravity="center" android:id="@id/tvNoData" android:paddingTop="@dimen/margin_medium" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/msg_order_no_data" style="@style/TextViewDefaultSingleLine" />
+        <TextView android:textSize="@dimen/font_size_medium_small" android:textColor="@color/color_primary" android:gravity="center" android:id="@id/tvAddOrder" android:paddingTop="@dimen/margin_normal" android:paddingBottom="@dimen/margin_normal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_small_small" android:text="@string/msg_click_here_to_add_order" style="@style/TextViewDefaultSingleLine" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/title" android:background="@color/my_primary" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/font_size_medium_small" android:textColor="@color/color_white" android:gravity="center_horizontal" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_medium" android:layout_marginTop="@dimen/margin_normal" android:layout_marginBottom="@dimen/margin_normal" android:text="Thời gian" style="@style/TextViewDefaultSingleLine" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/lnFromDate" android:background="@drawable/bg_white_no_border_no_radius_selector" android:paddingLeft="@dimen/margin_medium_small" android:paddingTop="@dimen/margin_medium_small" android:paddingRight="@dimen/margin_normal_small" android:paddingBottom="@dimen/margin_medium_small" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/font_size_normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Từ ngày" />
+            <TextView android:textSize="@dimen/font_size_normal" android:textColor="@color/color_text_main" android:gravity="right" android:id="@id/tvFromDateValue" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="01/08/2016" android:layout_weight="1.0" />
+            <ImageView android:layout_width="28.0dip" android:layout_height="28.0dip" android:src="@drawable/ic_chevron_right" />
+        </LinearLayout>
+        <View android:background="@color/divider_color" android:layout_width="fill_parent" android:layout_height="0.6dip" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/lnToDate" android:background="@drawable/bg_white_no_border_no_radius_selector" android:paddingLeft="@dimen/margin_medium_small" android:paddingTop="@dimen/margin_medium_small" android:paddingRight="@dimen/margin_normal_small" android:paddingBottom="@dimen/margin_medium_small" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/font_size_normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Đến ngày" />
+            <TextView android:textSize="@dimen/font_size_normal" android:textColor="@color/color_text_main" android:gravity="right" android:id="@id/tvTodateValue" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="30/08/2016" android:layout_weight="1.0" />
+            <ImageView android:layout_width="28.0dip" android:layout_height="28.0dip" android:src="@drawable/ic_chevron_right" />
+        </LinearLayout>
+    </LinearLayout>
+    <include layout="@layout/view_button_dialog" />
+</LinearLayout>

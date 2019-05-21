@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/toast_frame" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/font_size_normal" android:textColor="@color/color_white" android:id="@id/cus_toast_info_txtMessage" android:padding="@dimen/margin_normal" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

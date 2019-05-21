@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/color_white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:background="@color/my_primary" android:layout_width="fill_parent" android:layout_height="@dimen/size_title_bar">
+        <ImageButton android:id="@id/imgBtnBack" android:background="@drawable/bg_action_bar_selector" android:layout_width="@dimen/size_title_bar" android:layout_height="fill_parent" android:src="@drawable/ic_arrow_back" />
+        <TextView android:textColor="@color/color_white" android:gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/title_order" android:layout_weight="1.0" style="@style/TextTitlePage" />
+        <Button android:id="@id/btnTitleDone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/done" android:layout_alignParentRight="true" style="@style/ButtonDefaultActionBar" />
+    </LinearLayout>
+    <FrameLayout android:orientation="vertical" android:id="@id/lnContent" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <TextView android:id="@id/btnDone" android:background="@drawable/selector_button_main_color" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_medium" android:layout_marginTop="@dimen/margin_normal" android:layout_marginRight="@dimen/margin_medium" android:layout_marginBottom="@dimen/margin_normal" android:text="@string/btn_done" style="@style/TextButtonDefault" />
+</LinearLayout>
