@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0973B9</color>
+    <color name="colorPrimaryDark">#0973B9</color>
+    <color name="colorAccent">#0973B9</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+    <color name="color_red">#C62C2C</color>
+    <color name="emperor">#555555</color>
+    <color name="boulder">#757575</color>
+    <color name="color_background_main">#cccccc</color>
+    <color name="color_primary_40">#ff9dc7e3</color>
+    <color name="gray">#C7C6BD</color>
+    <color name="gray_dark">#9D9D9D</color>
+    <color name="gray_light">#7A7A7A</color>
+    <color name="blue_trans">#BA0B559E</color>
+    <color name="color_gray">#ffededed</color>
+    <color name="color_divider">#ffc7c6bd</color>
+    <color name="color_text_main">#212121</color>
+    <color name="color_disable">#ababab</color>
+    <color name="background_color_gray">#ededed</color>
+    <color name="btn_login_google_dark">#c43030</color>
+    <color name="btn_login_google">#DC4C4C</color>
+    <color name="btn_login_facebook_dark">#063987</color>
+    <color name="btn_login_facebook">#0D47A1</color>
+    <color name="btn_login_phone_email_dark">#0EB48C</color>
+    <color name="btn_login_phone_email">#14C094</color>
+    <color name="divider_color">#c7c6bd</color>
+    <color name="color_primary_light">#0199fc</color>
+    <color name="my_primary_dark">#ff005082</color>
+    <color name="button_background_gray_light">#ffebebeb</color>
+    <color name="color_text_dark_gray">#ff373737</color>
+    <color name="negative_btn_text_color">#fff53232</color>
+    <color name="gray_border_color">#ffd6d6d6</color>
+    <color name="color_action_bar_selected">#ff3a89be</color>
+    <color name="bg_rv_sale">#D1D6DC</color>
+    <color name="color_dark_gray">#ffd1d6dc</color>
+    <color name="background_color_dark_gray">#ffd1d6dc</color>
+    <color name="color_primary_15">#ffdaeaf5</color>
+    <color name="color_background_for_bill">#ffcac9cf</color>
+    <color name="color_header_table">#f2f2f2</color>
+
+    <array name="arr_colors">
+        <item>#26C6DA</item>
+        <item>#0097A7</item>
+        <item>#0D47A1</item>
+        <item>#1565C0</item>
+        <item>#039BE5</item>
+        <item>#64B5F6</item>
+        <item>#FF6F00</item>
+        <item>#FFA000</item>
+        <item>#FFB300</item>
+        <item>#CF9A0A</item>
+        <item>#8D6E63</item>
+        <item>#6D4C41</item>
+        <item>#D32F2F</item>
+        <item>#FF1744</item>
+        <item>#F44336</item>
+        <item>#EC407A</item>
+        <item>#AD1457</item>
+        <item>#6A1B9A</item>
+        <item>#AB47BC</item>
+        <item>#BA68C8</item>
+        <item>#00695C</item>
+        <item>#00897B</item>
+        <item>#4DB6AC</item>
+        <item>#2E7D32</item>
+        <item>#43A047</item>
+        <item>#64DD17</item>
+        <item>#212121</item>
+        <item>#5F7C8A</item>
+        <item>#B0BEC5</item>
+        <item>#455A64</item>
+        <item>#607D8B</item>
+        <item>#90A4AE</item>
+    </array>
+</resources>
