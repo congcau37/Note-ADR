@@ -1,0 +1,27 @@
+private void initBroadCast() {
+        try {
+         myBroadCast = new BroadcastReceiver() {
+             @Override
+             public void onReceive(Context context, Intent intent) {
+                 if(intent.getAction().equals(ConstantKey.ACTION_NOTIFY_DATA)){
+                     iMenuPresenter.loadAllFood();
+                     adapter.notifyDataSetChanged();
+                 }
+             }
+         };
+
+         final IntentFilter filter = new IntentFilter(ConstantKey.ACTION_NOTIFY_DATA);
+         getActivity().registerReceiver(myBroadCast,filter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+//
+ try {
+            Intent intentBroadCast = new Intent(ConstantKey.ACTION_NOTIFY_DATA);
+            sendBroadcast(intentBroadCast);
+            finish();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
